@@ -17,3 +17,5 @@ venv\Scripts\activate
 
 Install Required Packages:
 pip install -r requirements.txt
+
+now run "python3 manage.py runserver" again and open http://127.0.0.1:8000/ in your browser
