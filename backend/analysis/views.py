@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from .utils import predict, analyze, measure_volume
+from pathlib import Path
 
 def index(request):
     return render(request, 'index.html')
@@ -20,7 +21,9 @@ class PredictView(APIView):
             return Response({"error": "No file provided"}, status=400)
 
         file_obj = request.FILES['file']
-        file_path = f'temp/{file_obj.name}'
+        temp_dir = Path("temp")
+        temp_dir.mkdir(parents=True, exist_ok=True)  # Ensures temp directory exists
+        file_path = temp_dir / file_obj.name
 
         # Save the file temporarily
         with open(file_path, 'wb') as f:

@@ -1,7 +1,8 @@
 Starting the project
 
 1) move to backend/ directory
-2) run "python3 manage.py runserver"
+2) run "pip install -r requirements.txt"
+3) run "python3 manage.py runserver"
 
 if error stay in backend/ directory and do the following:
 
